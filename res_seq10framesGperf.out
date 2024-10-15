@@ -1,0 +1,48 @@
+g++  -std=c++11 -Wall -g -fopenmp -I/global/homes/a/adiarc/gperftools/include  -c -o sph.o sph.cpp
+g++  -std=c++11 -Wall -g -fopenmp -I/global/homes/a/adiarc/gperftools/include  -c -o params.o params.cpp
+g++  -std=c++11 -Wall -g -fopenmp -I/global/homes/a/adiarc/gperftools/include  -c -o state.o state.cpp
+g++  -std=c++11 -Wall -g -fopenmp -I/global/homes/a/adiarc/gperftools/include  -c -o binhash.o binhash.cpp
+g++  -std=c++11 -Wall -g -fopenmp -I/global/homes/a/adiarc/gperftools/include  -c -o interact.o interact.cpp
+g++  -std=c++11 -Wall -g -fopenmp -I/global/homes/a/adiarc/gperftools/include  -c -o leapfrog.o leapfrog.cpp
+g++  -std=c++11 -Wall -g -fopenmp -I/global/homes/a/adiarc/gperftools/include  -c -o io_txt.o io_txt.cpp
+CC -std=c++11 -Wall -g -fopenmp -I/global/homes/a/adiarc/gperftools/include sph.o params.o state.o binhash.o interact.o leapfrog.o io_txt.o -o sph.x -lm -L/global/homes/a/adiarc/gperftools/lib -lprofiler
+Frame: 1 of 10 - 10.0%
+Frame: 2 of 10 - 20.0%
+Frame: 3 of 10 - 30.0%
+Frame: 4 of 10 - 40.0%
+Frame: 5 of 10 - 50.0%
+Frame: 6 of 10 - 60.0%
+Frame: 7 of 10 - 70.0%
+Frame: 8 of 10 - 80.0%
+Frame: 9 of 10 - 90.0%
+Ran in 102.141 seconds
+Total: 10205 samples
+    3354  32.9%  32.9%     3966  38.9% update_density
+    3195  31.3%  64.2%     5314  52.1% update_forces
+    1476  14.5%  78.6%     1476  14.5% vec3_len2
+     616   6.0%  84.7%      616   6.0% vec3_diff
+     612   6.0%  90.7%      612   6.0% vec3_dist2
+     463   4.5%  95.2%     4429  43.4% compute_density
+     439   4.3%  99.5%    10195  99.9% compute_accel
+      20   0.2%  99.7%       20   0.2% vec3_saxpy
+       7   0.1%  99.8%        7   0.1% __ieee754_sqrtf
+       7   0.1%  99.8%        7   0.1% zm_part1by2
+       4   0.0%  99.9%       12   0.1% std::sqrt
+       3   0.0%  99.9%       12   0.1% hash_particles
+       2   0.0%  99.9%        2   0.0% check_state
+       2   0.0% 100.0%        9   0.1% particle_bucket
+       1   0.0% 100.0%        2   0.0% __GI___printf_fp_l
+       1   0.0% 100.0%        1   0.0% __mpn_rshift
+       1   0.0% 100.0%        1   0.0% __sqrtf
+       1   0.0% 100.0%        1   0.0% vec3_scalev
+       1   0.0% 100.0%        1   0.0% vec3_set
+       0   0.0% 100.0%        2   0.0% __GI_fprintf
+       0   0.0% 100.0%    10205 100.0% __libc_start_main
+       0   0.0% 100.0%        2   0.0% __vfprintf_internal
+       0   0.0% 100.0%    10205 100.0% _start
+       0   0.0% 100.0%        1   0.0% damp_reflect
+       0   0.0% 100.0%        6   0.1% leapfrog_step
+       0   0.0% 100.0%    10205 100.0% main
+       0   0.0% 100.0%        1   0.0% reflect_bc
+       0   0.0% 100.0%        2   0.0% write_frame_data
+       0   0.0% 100.0%        7   0.1% zm_encode

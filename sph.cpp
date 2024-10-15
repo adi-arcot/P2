@@ -5,6 +5,7 @@
 #include <assert.h>
 #include <stdlib.h>
 #include <omp.h>
+#include <gperftools/profiler.h>
 
 #include "vec3.hpp"
 #include "io.hpp"
@@ -144,6 +145,7 @@ void check_state(sim_state_t* s)
 
 int main(int argc, char** argv)
 {
+    
     sim_param_t params;
     if (get_params(argc, argv, &params) != 0)
         exit(-1);
@@ -155,6 +157,7 @@ int main(int argc, char** argv)
     int n       = state->n;
 
     double t_start = omp_get_wtime();
+    ProfilerStart("profile.prof");
     //write_header(fp, n);
     write_header(fp, n, nframes, params.h);
     write_frame_data(fp, n, state, NULL);
@@ -171,6 +174,7 @@ int main(int argc, char** argv)
                100*(float)frame/nframes);
         write_frame_data(fp, n, state, NULL);
     }
+    ProfilerStop(); 
     double t_end = omp_get_wtime();
     printf("Ran in %g seconds\n", t_end-t_start);
 

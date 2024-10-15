@@ -1,0 +1,17 @@
+interact.cpp: In function ‘void compute_density(sim_state_t*, sim_param_t*)’:
+interact.cpp:48:18: warning: unused variable ‘hash’ [-Wunused-variable]
+   48 |     particle_t** hash = s->hash;
+      |                  ^~~~
+interact.cpp:54:11: warning: unused variable ‘C’ [-Wunused-variable]
+   54 |     float C  = ( 315.0/64.0/M_PI ) * s->mass / h9;
+      |           ^
+sph.x: sph.cpp:140: void check_state(sim_state_t*): Assertion `xi >= 0 || xi <= 1' failed.
+srun: error: nid004302: task 0: Aborted
+srun: Terminating StepId=31910448.0
+Using local file ./sph.x.
+Using local file profile.prof.
+substr outside of string at /global/homes/a/adiarc/gperftools/bin/pprof line 3695.
+Use of uninitialized value in string eq at /global/homes/a/adiarc/gperftools/bin/pprof line 3695.
+substr outside of string at /global/homes/a/adiarc/gperftools/bin/pprof line 3697.
+Use of uninitialized value in string eq at /global/homes/a/adiarc/gperftools/bin/pprof line 3697.
+profile.prof: header size >= 2**16

@@ -1,0 +1,8 @@
+g++  -std=c++11 -Wall -g -fopenmp -I/global/homes/a/adiarc/gperftools/include  -c -o sph.o sph.cpp
+g++  -std=c++11 -Wall -g -fopenmp -I/global/homes/a/adiarc/gperftools/include  -c -o params.o params.cpp
+g++  -std=c++11 -Wall -g -fopenmp -I/global/homes/a/adiarc/gperftools/include  -c -o state.o state.cpp
+g++  -std=c++11 -Wall -g -fopenmp -I/global/homes/a/adiarc/gperftools/include  -c -o binhash.o binhash.cpp
+g++  -std=c++11 -Wall -g -fopenmp -I/global/homes/a/adiarc/gperftools/include  -c -o interact.o interact.cpp
+g++  -std=c++11 -Wall -g -fopenmp -I/global/homes/a/adiarc/gperftools/include  -c -o leapfrog.o leapfrog.cpp
+g++  -std=c++11 -Wall -g -fopenmp -I/global/homes/a/adiarc/gperftools/include  -c -o io_txt.o io_txt.cpp
+CC -std=c++11 -Wall -g -fopenmp -I/global/homes/a/adiarc/gperftools/include sph.o params.o state.o binhash.o interact.o leapfrog.o io_txt.o -o sph.x -lm -L/global/homes/a/adiarc/gperftools/lib -lprofiler
